@@ -5,8 +5,12 @@ class Calculator:
         
     def home(self):
         print('Welcome to', self.calc_name)
-        self.val1 = float(input('First value: '))
-        self.val2 = float(input('Second value: '))
+        try:
+            self.val1 = float(input('First value: '))
+            self.val2 = float(input('Second value: '))
+        except Exception as e:
+            print(e)
+            self.decide()
         user = input('''
             Choose your operation:
               1. Addition
@@ -39,8 +43,11 @@ class Calculator:
         print(f'Answer =  {self.val1 * self.val2}')
         self.decide()
     def division(self):
-        print(f'Answer = ', self.val1 / self.val2)
-        self.decide()
+        try:
+            print(f'Answer = ', self.val1 / self.val2)
+        except Exception as e:
+            print(e)
+            self.decide()
     def decide(self):
         user = input('Press 1 to go to home or # to exit')
         if user == '1':
